@@ -152,7 +152,7 @@ float super_poder_2 = calculo_super_poder (carta_2.populacao, carta_2.area, cart
 
     // comparacoes 
     printf("\n\n >>>>>COMPARACOES <<<<<\n");
-    printf("O resultado '1', e Verdadeiro / O resultado '0' e Falso.\n\n");
+    printf("Resultado '1' Verdadeiro / Resultado '0' Falso.\n\n");
     printf("Populacao: Carta 1 venceu (%d)\n", carta_1.populacao > carta_2.populacao);
     printf("Area: Carta 1 venceu (%d)\n", carta_1.area > carta_2.area);
     printf("PIB: Carta 1 venceu (%d)\n", carta_1.pib > carta_2.pib);
