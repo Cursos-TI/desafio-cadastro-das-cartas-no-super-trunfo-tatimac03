@@ -4,7 +4,7 @@
 // Tema 1 - Cadastro das Cartas
 //  Cada país está dividido em 8 estados
 // Cada Estado tem 4 cidades 
-// A carta tem que ser identificada por um código
+// A carta tem que ser identificada por um codigo
 // Criar uma estrutura, pra nao ter que ta repetindo as variaveis porque pode ficar confuso.
 /* modelo aula 
 carta 1: 
@@ -28,17 +28,17 @@ NIVEL MESTRE
 
 // funcao renda 
 float calculo_densidade( unsigned long int populacao, float area){
-    return populcao / area ;
+    return (float) populacao / area ;
 }
 
 // pib per capita 
 float calculo_percapita(float pib, unsigned long int  populacao){
-    return (pib * 1000000)/ populacao ; 
+    return (pib * 1000000)/ (float) populacao ; 
 }
 
 // super poder 
-float calculo_super_poder (unsigned long int populacao, float area, float pib, int pontos, float densidade, float calculo_percapita){
-    return populacao + area + (pib * 1000000) + pontos + percapita + (1/calculo_densidade);
+float calculo_super_poder (unsigned long int populacao, float area, float pib, int pontos, float densidade, float percapita){
+    return populacao + area + pib + pontos + percapita +  (float)(1.0 / densidade);
 }
 
 // 1. criando as cartas 
@@ -60,16 +60,20 @@ int main() {
 
     struct carta_estrutura carta_1, carta_2;
 // carta 1
-    printf("Cadastro da Primeira Carta:\n");
-    printf(">>>>>Atencao: Use ponto ('.') para separar as casas decimais.<<<<<\n")
+    
+    printf(">>>>>Atencao >>>>>\n");
+    printf("1 - Use ponto ('.') para separar as casas decimais.\n");
+    printf("2 - Na entrada de Populacao informar numero inteiro, sem '.' ou ','.\n");
+    printf("3 - Se o nome da Cidade ou Estado for composto usar '_' para fazer a conexao. ex: Sao_Paulo.\n\n");
+    printf("Cadastro da Primeira Carta:\n\n");
     printf("Estado: ");
     scanf(" %s", carta_1.estado);
-    printf("Código da Cidade ex ('A01'): ");
+    printf("Codigo da Cidade ex ('A01'): ");
     scanf(" %s", carta_1.codigo);
     printf("Cidade: ");
     scanf(" %s", carta_1.cidade ); // NAO ESQUECER DE ESPACAR 
     printf("Populacao: ");
-    scanf(" %f", &carta_1.populacao);
+    scanf(" %lu", &carta_1.populacao);
     printf("Area (em km²): ");
     scanf(" %f", &carta_1.area);
     printf("PIB (em milhoes): ");
@@ -79,8 +83,12 @@ int main() {
 
 // carta 2
     printf("\n\n");
-    printf("Cadastro da Segunda Carta:\n");
-    printf(">>>>> Atencao: Use ponto ('.') para separar as casas decimais.<<<<<")
+    
+    printf(">>>>>Atencao >>>>>\n");
+    printf("1 - Use ponto ('.') para separar as casas decimais.\n");
+    printf("2 - Na entrada de Populacao informar numero inteiro, sem '.' ou ','.\n");
+    printf("3 - Se o nome da Cidade ou Estado for composto usar '_' para fazer a conexao. ex: Sao_Paulo.\n\n");
+    printf("Cadastro da Segunda Carta:\n\n");
     printf("Estado: ");
     scanf(" %s", carta_2.estado);
     printf("Codigo da Cidade (ex: 'B01'): ");
@@ -88,7 +96,7 @@ int main() {
     printf("Cidade: ");
     scanf(" %s", carta_2.cidade ); 
     printf("Populacao: ");
-    scanf(" %f", &carta_2.populacao);
+    scanf(" %lu", &carta_2.populacao);
     printf("Area (em km²): ");
     scanf(" %f", &carta_2.area);
     printf("PIB (em milhoes): ");
@@ -103,11 +111,11 @@ tendo atencao no calculos e numeros informados, ja que nao tem mecanismo de cont
 
 // calculo carta 1
 float densidade_1 = calculo_densidade (carta_1.populacao, carta_1.area);
-float pib_percapita_1 = calculo_percapita( carta_1.pib , carta_1.populcao); 
+float pib_percapita_1 = calculo_percapita( carta_1.pib , carta_1.populacao); 
 float super_poder_1 = calculo_super_poder (carta_1.populacao, carta_1.area, carta_1.pib, carta_1.pontos_turisticos, densidade_1, pib_percapita_1);
 
 // calculo carta 2
-float densidade_2 = calculo_densidade (carta_2.populcao, carta_2.area);
+float densidade_2 = calculo_densidade (carta_2.populacao, carta_2.area);
 float pib_percapita_2 = calculo_percapita (carta_2.pib , carta_2.populacao);
 float super_poder_2 = calculo_super_poder (carta_2.populacao, carta_2.area, carta_2.pib, carta_2.pontos_turisticos, densidade_2, pib_percapita_2); 
 
@@ -122,9 +130,9 @@ float super_poder_2 = calculo_super_poder (carta_2.populacao, carta_2.area, cart
     printf("Cidade: %s\n", carta_1.cidade);
     printf("Populacao: %lu habitantes\n", carta_1.populacao );
     printf("Area: %.2f Km²\n", carta_1.area);
-    printf("Densidade Populacional: %.2f hab/km²", densidade_1);// acrescimo nivel aventureiro 
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_1);// acrescimo nivel aventureiro 
     printf("PIB: %.2f milhoes\n", carta_1.pib);
-    printf("PIB per capita %.2f milhoes; ", pib_percapita_1);
+    printf("PIB per capita %.2f milhoes; \n", pib_percapita_1);
     printf("Quantidade de Pontos Turisticos: %d\n", carta_1.pontos_turisticos); // nivel aventureiro
     printf("Super Poder: %.2f\n", super_poder_1);
 
@@ -143,8 +151,9 @@ float super_poder_2 = calculo_super_poder (carta_2.populacao, carta_2.area, cart
     printf("Super Poder: %.2f\n", super_poder_2);
 
     // comparacoes 
-    printf("\n\n >>>>>COMPARACOES <<<<<");
-    printf("Populacao: Carta 1 venceu (%d)\n", carta_1.populcao > carta_2.populacao);
+    printf("\n\n >>>>>COMPARACOES <<<<<\n");
+    printf("O resultado '1', e Verdadeiro / O resultado '0' e Falso.\n\n");
+    printf("Populacao: Carta 1 venceu (%d)\n", carta_1.populacao > carta_2.populacao);
     printf("Area: Carta 1 venceu (%d)\n", carta_1.area > carta_2.area);
     printf("PIB: Carta 1 venceu (%d)\n", carta_1.pib > carta_2.pib);
     printf("Pontos Turisticos: Carta 1 venceu (%d)\n", carta_1.pontos_turisticos > carta_2.pontos_turisticos);
@@ -158,3 +167,17 @@ float super_poder_2 = calculo_super_poder (carta_2.populacao, carta_2.area, cart
     return 0;
 }
 
+
+
+
+    
+    
+
+
+  
+   
+   
+
+       
+
+   
