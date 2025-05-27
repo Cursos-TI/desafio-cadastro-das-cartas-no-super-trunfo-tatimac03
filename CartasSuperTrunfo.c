@@ -18,15 +18,27 @@ carta 1:
 */
 // Nivel aventureiro 
 // calculo para densidade e renda per capita 
+/*
+NIVEL MESTRE 
+-populacao unsigned long int
+- super poder (float) - soma de todos os atributos numericos (pop, area, pib, pontos turisticos, pib per capita e o inverso da densidade populacional)
+- comparar as cartas por atributos (- estado, codigo e nome
+- exibir os resultados das coparacoes ), para cada atributo imprimir a carta que venceu 
+*/
 
 // funcao renda 
-float calculo_densidade(float populacao, float area){
+float calculo_densidade( unsigned long int populacao, float area){
     return populcao / area ;
 }
 
 // pib per capita 
-float calculo_percapita(float pib, float populacao){
+float calculo_percapita(float pib, unsigned long int  populacao){
     return pib / populacao ; 
+}
+
+// super poder 
+float calculo_super_poder (unsigned long int populacao, float area, float pib, int pontos_turisticos, float calculo_densidade, float calculo_percapita){
+    return populacao + area + pib + pontos_turisticos + calculo_percapita + (1/calculo_densidade);
 }
 
 // 1. criando as cartas 
@@ -37,7 +49,7 @@ struct carta_estrutura {
     char estado[25];
     char codigo[4]; 
     char cidade[25];
-    float populacao;
+    unsigned long int populacao ;
     float area;
     float pib;
     int pontos_turisticos;
