@@ -88,19 +88,19 @@ int main() {
     printf("3 - Se o nome da Cidade ou Estado for composto usar  '_'  ex: Sao_Paulo.\n\n");
     printf("Cadastro da Primeira Carta:\n\n");
     printf("Estado: ");
-    scanf(" %s", carta_1.estado);
+    scanf(" %s\n", carta_1.estado);
     printf("Codigo da Cidade ex ('A01'): ");
-    scanf(" %s", carta_1.codigo);
+    scanf(" %s\n", carta_1.codigo);
     printf("Cidade: ");
-    scanf(" %s", carta_1.cidade ); 
+    scanf(" %s\n", carta_1.cidade ); 
     printf("Populacao: ");
-    scanf(" %lu", &carta_1.populacao);   // %lu é o especificador correto para 'unsigned long int'; '\n' limpa o buffer.
+    scanf(" %lu\n", &carta_1.populacao);   // %lu é o especificador correto para 'unsigned long int'; '\n' limpa o buffer.
     printf("Area (em km²): ");  
-    scanf(" %f", &carta_1.area);  // %f é o especificador para 'float'; '\n' limpa o buffer.
+    scanf(" %f\n", &carta_1.area);  // %f é o especificador para 'float'; '\n' limpa o buffer.
     printf("PIB (em milhoes): ");
-    scanf(" %f", &carta_1.pib);  // %f é o especificador para 'float'; '\n' limpa o buffer.
+    scanf(" %f\n", &carta_1.pib);  // %f é o especificador para 'float'; '\n' limpa o buffer.
     printf("Quantidade de Pontos Turisticos: ");
-    scanf(" %d", &carta_1.pontos_turisticos);   // %d é o especificador para 'int'; '\n' limpa o buffer.
+    scanf(" %d\n", &carta_1.pontos_turisticos);   // %d é o especificador para 'int'; '\n' limpa o buffer.
 
 
     printf("\n\n");
@@ -112,19 +112,19 @@ int main() {
     printf("3 - Se o nome da Cidade ou Estado for composto usar '_' ex: Sao_Paulo.\n\n");
     printf("Cadastro da Segunda Carta:\n\n");
     printf("Estado: ");
-    scanf(" %s", carta_2.estado);
+    scanf(" %s\n", carta_2.estado);
     printf("Codigo da Cidade (ex: 'B01'): ");
-    scanf(" %s", carta_2.codigo);
+    scanf(" %s\n", carta_2.codigo);
     printf("Cidade: ");
-    scanf(" %s", carta_2.cidade ); 
+    scanf(" %s\n", carta_2.cidade ); 
     printf("Populacao: ");
-    scanf(" %lu", &carta_2.populacao);
+    scanf(" %lu\n", &carta_2.populacao);
     printf("Area (em km²): ");
-    scanf(" %f", &carta_2.area);
+    scanf(" %f\n", &carta_2.area);
     printf("PIB (em milhoes): ");
     scanf(" %f", &carta_2.pib);
     printf("Quantidade de Pontos Turisticos: ");
-    scanf(" %d", &carta_2.pontos_turisticos);
+    scanf(" %d\n", &carta_2.pontos_turisticos);
  
     /* --- CÁLCULOS DOS ATRIBUTOS  ---
      * Esta seção calcula a densidade populacional, PIB per capita e o Super Poder para cada carta.
